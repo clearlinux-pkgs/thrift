@@ -4,7 +4,7 @@
 #
 Name     : thrift
 Version  : 0.9.2
-Release  : 11
+Release  : 12
 URL      : https://pypi.python.org/packages/source/t/thrift/thrift-0.9.2.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/thrift/thrift-0.9.2.tar.gz
 Summary  : Python bindings for the Apache Thrift RPC system

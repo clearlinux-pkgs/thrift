@@ -4,7 +4,7 @@
 #
 Name     : thrift
 Version  : 0.11.0
-Release  : 23
+Release  : 24
 URL      : http://pypi.debian.net/thrift/thrift-0.11.0.tar.gz
 Source0  : http://pypi.debian.net/thrift/thrift-0.11.0.tar.gz
 Summary  : Python bindings for the Apache Thrift RPC system

@@ -1,0 +1,11 @@
+--with-csharp=no
+--with-dotnetcore=no
+--with-go=no
+--with-nodejs=no
+--with-perl=yes
+--with-php=no
+--with-python=yes
+--with-qt4=no
+--with-qt5=yes
+--with-rs=no
+--with-ruby=no

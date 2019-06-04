@@ -1,0 +1,20 @@
+Configure miss: libevent >= 1.0
+Configure miss: moc-qt5
+Configure miss: javac and java
+Configure miss: ant
+Configure miss: x86_64-generic-linux-gnu-erl
+Configure miss: x86_64-generic-linux-gnu-erlc
+Configure miss: rebar
+Configure miss: nodets
+Configure miss: a Lua interpreter with version >= 5.2
+Configure miss: trial
+Configure miss: dart
+Configure miss: pub
+Configure miss: cabal
+Configure miss: runhaskell
+Configure miss: sbcl
+Configure miss: haxe
+Configure miss: DMD
+Configure miss: stdbool.h that conforms to C99
+Configure miss: _Bool
+Configure miss: setsockopt in -lsocket

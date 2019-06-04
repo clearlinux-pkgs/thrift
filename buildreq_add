@@ -1,2 +1,6 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+boost-dev
+perl-Bit-Vector
+perl-Class-Accessor
+python3

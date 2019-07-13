@@ -6,7 +6,7 @@
 #
 Name     : thrift
 Version  : 0.12.0
-Release  : 29
+Release  : 30
 URL      : https://www-us.apache.org/dist/thrift/0.12.0/thrift-0.12.0.tar.gz
 Source0  : https://www-us.apache.org/dist/thrift/0.12.0/thrift-0.12.0.tar.gz
 Source99 : https://www-us.apache.org/dist/thrift/0.12.0/thrift-0.12.0.tar.gz.asc

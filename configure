@@ -9,3 +9,4 @@
 --with-qt5=yes
 --with-rs=no
 --with-ruby=no
+--with-java=no

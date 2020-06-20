@@ -6,11 +6,11 @@
 #
 Name     : thrift
 Version  : 0.13.0
-Release  : 36
+Release  : 37
 URL      : https://www-us.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz
 Source0  : https://www-us.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz
 Source1  : https://www-us.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz.asc
-Summary  : Scalable cross-language services framework for IPC/RPC
+Summary  : RPC and serialization framework
 Group    : Development/Tools
 License  : Apache-2.0 FSFAP LGPL-2.1 MIT Zlib
 Requires: thrift-bin = %{version}-%{release}
@@ -62,7 +62,6 @@ Requires: thrift-lib = %{version}-%{release}
 Requires: thrift-bin = %{version}-%{release}
 Provides: thrift-devel = %{version}-%{release}
 Requires: thrift = %{version}-%{release}
-Requires: thrift = %{version}-%{release}
 
 %description dev
 dev components for the thrift package.
@@ -112,12 +111,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582910200
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1592660651
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --with-csharp=no \
 --with-dotnetcore=no \
@@ -134,7 +132,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1582910200
+export SOURCE_DATE_EPOCH=1592660651
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/thrift
 cp %{_builddir}/thrift-0.13.0/LICENSE %{buildroot}/usr/share/package-licenses/thrift/117ea3761a9291cb3ba107aa7a2f2dcafd4ca6dc

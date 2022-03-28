@@ -1,7 +1,7 @@
-0.13.0
+0.16.0
 bison
 flex
 nodejs
 openssl-dev
 otp
-util-linux
+perl(Test::Exception)

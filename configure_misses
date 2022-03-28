@@ -1,19 +1,21 @@
+Configure miss: DMD
+Configure miss: _Bool
+Configure miss: a Lua interpreter with version >= 5.2
+Configure miss: dart
+Configure miss: dotnet
+Configure miss: g++ -std=c++11 options needed to detect all undeclared functions
+Configure miss: g++ option to enable C++11 features
+Configure miss: haxe
 Configure miss: libevent >= 2.0
+Configure miss: library containing yywrap
 Configure miss: moc-qt5
+Configure miss: nodets
+Configure miss: pub
+Configure miss: rebar3
+Configure miss: sbcl
+Configure miss: setsockopt in -lsocket
+Configure miss: swift
+Configure miss: trial
 Configure miss: x86_64-generic-linux-gnu-erl
 Configure miss: x86_64-generic-linux-gnu-erlc
-Configure miss: rebar3
-Configure miss: nodets
-Configure miss: a Lua interpreter with version >= 5.2
-Configure miss: trial
-Configure miss: dart
-Configure miss: pub
-Configure miss: cabal
-Configure miss: runhaskell
-Configure miss: swift
-Configure miss: sbcl
-Configure miss: haxe
-Configure miss: DMD
-Configure miss: stdbool.h that conforms to C99
-Configure miss: _Bool
-Configure miss: setsockopt in -lsocket
+Configure miss: x86_64-generic-linux-gnu-file

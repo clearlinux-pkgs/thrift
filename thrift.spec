@@ -4,7 +4,7 @@
 #
 Name     : thrift
 Version  : 0.16.0
-Release  : 52
+Release  : 53
 URL      : https://github.com/apache/thrift/archive/refs/tags/v0.16.0.tar.gz
 Source0  : https://github.com/apache/thrift/archive/refs/tags/v0.16.0.tar.gz
 Summary  : RPC and serialization framework

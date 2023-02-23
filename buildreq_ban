@@ -2,5 +2,6 @@
 # undesirable. One entry per line, no whitespace.
 apache-ant
 apache-maven
-gradle
+buildreq-golang
 buildreq-mvn
+gradle

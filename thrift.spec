@@ -4,7 +4,7 @@
 #
 Name     : thrift
 Version  : 0.17.0
-Release  : 56
+Release  : 57
 URL      : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Source0  : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Summary  : RPC and serialization framework
@@ -21,7 +21,6 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-configure
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-distutils3
-BuildRequires : buildreq-golang
 BuildRequires : flex
 BuildRequires : nodejs
 BuildRequires : openssl-dev
@@ -34,6 +33,9 @@ BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : pypi(six)
 BuildRequires : python3
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 Thrift is a software framework for scalable cross-language services
@@ -111,12 +113,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672203235
+export SOURCE_DATE_EPOCH=1677183686
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 %configure --disable-static --with-csharp=no \
 --with-dotnetcore=no \
 --with-go=no \
@@ -132,14 +134,14 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1672203235
+export SOURCE_DATE_EPOCH=1677183686
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/thrift
-cp %{_builddir}/thrift-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/thrift/104c027505ef428a77fdbaa2e3713b52c8d3cfc4
-cp %{_builddir}/thrift-%{version}/contrib/fb303/LICENSE %{buildroot}/usr/share/package-licenses/thrift/0d359463862b027340624ba0f1e357a316d04931
-cp %{_builddir}/thrift-%{version}/debian/copyright %{buildroot}/usr/share/package-licenses/thrift/da322783caa0f9315473bc22aa25dbb2ee422d2e
-cp %{_builddir}/thrift-%{version}/doc/licenses/otp-base-license.txt %{buildroot}/usr/share/package-licenses/thrift/ba013932d429012281592d6851de646407c757bf
-cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/package-licenses/thrift/0d359463862b027340624ba0f1e357a316d04931
+cp %{_builddir}/thrift-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/thrift/104c027505ef428a77fdbaa2e3713b52c8d3cfc4 || :
+cp %{_builddir}/thrift-%{version}/contrib/fb303/LICENSE %{buildroot}/usr/share/package-licenses/thrift/0d359463862b027340624ba0f1e357a316d04931 || :
+cp %{_builddir}/thrift-%{version}/debian/copyright %{buildroot}/usr/share/package-licenses/thrift/da322783caa0f9315473bc22aa25dbb2ee422d2e || :
+cp %{_builddir}/thrift-%{version}/doc/licenses/otp-base-license.txt %{buildroot}/usr/share/package-licenses/thrift/ba013932d429012281592d6851de646407c757bf || :
+cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/package-licenses/thrift/0d359463862b027340624ba0f1e357a316d04931 || :
 %make_install
 
 %files

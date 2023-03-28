@@ -5,6 +5,8 @@ Configure miss: dart
 Configure miss: dotnet
 Configure miss: g++ -std=c++11 options needed to detect all undeclared functions
 Configure miss: g++ option to enable C++11 features
+Configure miss: glib-2.0 >= 2.0
+Configure miss: gobject-2.0 >= 2.0
 Configure miss: haxe
 Configure miss: javac and java
 Configure miss: libevent >= 2.0
@@ -19,3 +21,4 @@ Configure miss: trial
 Configure miss: x86_64-generic-linux-gnu-erl
 Configure miss: x86_64-generic-linux-gnu-erlc
 Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: zlib >= 1.2.3

@@ -5,3 +5,4 @@ nodejs
 openssl-dev
 otp
 perl(Test::Exception)
+python3-dev

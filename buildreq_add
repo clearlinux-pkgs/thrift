@@ -4,3 +4,5 @@ boost-dev
 perl-Bit-Vector
 perl-Class-Accessor
 python3
+glib-dev
+libevent-dev

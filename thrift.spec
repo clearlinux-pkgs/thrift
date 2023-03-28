@@ -5,7 +5,7 @@
 #
 Name     : thrift
 Version  : 0.17.0
-Release  : 58
+Release  : 59
 URL      : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Source0  : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Summary  : RPC and serialization framework
@@ -20,6 +20,8 @@ BuildRequires : bison
 BuildRequires : boost-dev
 BuildRequires : buildreq-configure
 BuildRequires : flex
+BuildRequires : glib-dev
+BuildRequires : libevent-dev
 BuildRequires : nodejs
 BuildRequires : openssl-dev
 BuildRequires : otp
@@ -116,7 +118,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680013033
+export SOURCE_DATE_EPOCH=1680013763
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -137,7 +139,7 @@ export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -f
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1680013033
+export SOURCE_DATE_EPOCH=1680013763
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/thrift
 cp %{_builddir}/thrift-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/thrift/104c027505ef428a77fdbaa2e3713b52c8d3cfc4 || :
@@ -174,6 +176,40 @@ cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/packag
 /usr/include/thrift/async/TConcurrentClientSyncInfo.h
 /usr/include/thrift/async/TEvhttpClientChannel.h
 /usr/include/thrift/async/TEvhttpServer.h
+/usr/include/thrift/c_glib/config.h
+/usr/include/thrift/c_glib/processor/thrift_dispatch_processor.h
+/usr/include/thrift/c_glib/processor/thrift_multiplexed_processor.h
+/usr/include/thrift/c_glib/processor/thrift_processor.h
+/usr/include/thrift/c_glib/protocol/thrift_binary_protocol.h
+/usr/include/thrift/c_glib/protocol/thrift_binary_protocol_factory.h
+/usr/include/thrift/c_glib/protocol/thrift_compact_protocol.h
+/usr/include/thrift/c_glib/protocol/thrift_compact_protocol_factory.h
+/usr/include/thrift/c_glib/protocol/thrift_multiplexed_protocol.h
+/usr/include/thrift/c_glib/protocol/thrift_protocol.h
+/usr/include/thrift/c_glib/protocol/thrift_protocol_decorator.h
+/usr/include/thrift/c_glib/protocol/thrift_protocol_factory.h
+/usr/include/thrift/c_glib/protocol/thrift_stored_message_protocol.h
+/usr/include/thrift/c_glib/server/thrift_server.h
+/usr/include/thrift/c_glib/server/thrift_simple_server.h
+/usr/include/thrift/c_glib/thrift.h
+/usr/include/thrift/c_glib/thrift_application_exception.h
+/usr/include/thrift/c_glib/thrift_configuration.h
+/usr/include/thrift/c_glib/thrift_struct.h
+/usr/include/thrift/c_glib/transport/thrift_buffered_transport.h
+/usr/include/thrift/c_glib/transport/thrift_buffered_transport_factory.h
+/usr/include/thrift/c_glib/transport/thrift_fd_transport.h
+/usr/include/thrift/c_glib/transport/thrift_framed_transport.h
+/usr/include/thrift/c_glib/transport/thrift_framed_transport_factory.h
+/usr/include/thrift/c_glib/transport/thrift_memory_buffer.h
+/usr/include/thrift/c_glib/transport/thrift_platform_socket.h
+/usr/include/thrift/c_glib/transport/thrift_server_socket.h
+/usr/include/thrift/c_glib/transport/thrift_server_transport.h
+/usr/include/thrift/c_glib/transport/thrift_socket.h
+/usr/include/thrift/c_glib/transport/thrift_ssl_socket.h
+/usr/include/thrift/c_glib/transport/thrift_transport.h
+/usr/include/thrift/c_glib/transport/thrift_transport_factory.h
+/usr/include/thrift/c_glib/transport/thrift_zlib_transport.h
+/usr/include/thrift/c_glib/transport/thrift_zlib_transport_factory.h
 /usr/include/thrift/concurrency/Exception.h
 /usr/include/thrift/concurrency/FunctionRunner.h
 /usr/include/thrift/concurrency/Monitor.h
@@ -245,8 +281,11 @@ cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/packag
 /usr/include/thrift/transport/TVirtualTransport.h
 /usr/include/thrift/transport/TWebSocketServer.h
 /usr/include/thrift/transport/TZlibTransport.h
+/usr/lib64/pkgconfig/thrift-nb.pc
 /usr/lib64/pkgconfig/thrift-qt5.pc
+/usr/lib64/pkgconfig/thrift-z.pc
 /usr/lib64/pkgconfig/thrift.pc
+/usr/lib64/pkgconfig/thrift_c_glib.pc
 
 %files extras
 %defattr(-,root,root,-)
@@ -257,6 +296,13 @@ cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/packag
 %defattr(-,root,root,-)
 /usr/lib64/libthrift-0.17.0.so
 /usr/lib64/libthrift.so
+/usr/lib64/libthrift_c_glib.so
+/usr/lib64/libthrift_c_glib.so.0
+/usr/lib64/libthrift_c_glib.so.0.0.0
+/usr/lib64/libthriftnb-0.17.0.so
+/usr/lib64/libthriftnb.so
+/usr/lib64/libthriftz-0.17.0.so
+/usr/lib64/libthriftz.so
 
 %files license
 %defattr(0644,root,root,0755)

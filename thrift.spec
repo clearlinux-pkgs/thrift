@@ -5,7 +5,7 @@
 #
 Name     : thrift
 Version  : 0.17.0
-Release  : 59
+Release  : 60
 URL      : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Source0  : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Summary  : RPC and serialization framework
@@ -21,7 +21,6 @@ BuildRequires : boost-dev
 BuildRequires : buildreq-configure
 BuildRequires : flex
 BuildRequires : glib-dev
-BuildRequires : libevent-dev
 BuildRequires : nodejs
 BuildRequires : openssl-dev
 BuildRequires : otp
@@ -29,6 +28,8 @@ BuildRequires : perl(Test::Exception)
 BuildRequires : perl-Bit-Vector
 BuildRequires : perl-Class-Accessor
 BuildRequires : pkgconfig(Qt5Core)
+BuildRequires : pkgconfig(glib-2.0)
+BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : python3
 BuildRequires : python3-dev
 # Suppress stripping binaries
@@ -118,7 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680013763
+export SOURCE_DATE_EPOCH=1680104757
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -139,7 +140,7 @@ export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -f
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1680013763
+export SOURCE_DATE_EPOCH=1680104757
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/thrift
 cp %{_builddir}/thrift-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/thrift/104c027505ef428a77fdbaa2e3713b52c8d3cfc4 || :
@@ -281,8 +282,6 @@ cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/packag
 /usr/include/thrift/transport/TVirtualTransport.h
 /usr/include/thrift/transport/TWebSocketServer.h
 /usr/include/thrift/transport/TZlibTransport.h
-/usr/lib64/pkgconfig/thrift-nb.pc
-/usr/lib64/pkgconfig/thrift-qt5.pc
 /usr/lib64/pkgconfig/thrift-z.pc
 /usr/lib64/pkgconfig/thrift.pc
 /usr/lib64/pkgconfig/thrift_c_glib.pc
@@ -291,6 +290,7 @@ cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/packag
 %defattr(-,root,root,-)
 /usr/lib64/libthriftqt5-0.17.0.so
 /usr/lib64/libthriftqt5.so
+/usr/lib64/pkgconfig/thrift-qt5.pc
 
 %files lib
 %defattr(-,root,root,-)
@@ -299,8 +299,6 @@ cp %{_builddir}/thrift-%{version}/lib/dart/LICENSE %{buildroot}/usr/share/packag
 /usr/lib64/libthrift_c_glib.so
 /usr/lib64/libthrift_c_glib.so.0
 /usr/lib64/libthrift_c_glib.so.0.0.0
-/usr/lib64/libthriftnb-0.17.0.so
-/usr/lib64/libthriftnb.so
 /usr/lib64/libthriftz-0.17.0.so
 /usr/lib64/libthriftz.so
 

@@ -5,7 +5,7 @@
 #
 Name     : thrift
 Version  : 0.17.0
-Release  : 60
+Release  : 61
 URL      : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Source0  : https://github.com/apache/thrift/archive/v0.17.0/thrift-0.17.0.tar.gz
 Summary  : RPC and serialization framework
@@ -102,6 +102,7 @@ python components for the thrift package.
 Summary: python3 components for the thrift package.
 Group: Default
 Requires: python3-core
+Requires: pypi(six)
 
 %description python3
 python3 components for the thrift package.
@@ -119,12 +120,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680104757
+export SOURCE_DATE_EPOCH=1684420710
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %configure --disable-static --with-csharp=no \
 --with-dotnetcore=no \
 --with-go=no \
@@ -140,7 +141,7 @@ export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -f
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1680104757
+export SOURCE_DATE_EPOCH=1684420710
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/thrift
 cp %{_builddir}/thrift-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/thrift/104c027505ef428a77fdbaa2e3713b52c8d3cfc4 || :
